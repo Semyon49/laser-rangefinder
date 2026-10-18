@@ -5,6 +5,7 @@ __pycache__/
 build/
 dist/
 # личная калибровка конкретного устройства
-calib.json
+.gitignore
+.vscode
 *.jpg
 *.png
