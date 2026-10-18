@@ -14,7 +14,7 @@ def synth(p, w=640, h=480, sigma=2.0):
 
 
 def test_detect_subpixel():
-    pts = find_spots(synth(123.4))
+    pts = find_spots(synth(123.4), thr=100)
     assert pts is not None
     assert abs(spot_distance_px(pts) - 123.4) < 0.5
 
