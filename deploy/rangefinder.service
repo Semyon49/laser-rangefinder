@@ -1,0 +1,17 @@
+# Установка:
+#   sudo cp deploy/rangefinder.service /etc/systemd/system/
+#   (поправьте User и пути)
+#   sudo systemctl daemon-reload && sudo systemctl enable --now rangefinder
+[Unit]
+Description=Laser rangefinder
+After=multi-user.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/laser-rangefinder
+ExecStart=/home/pi/laser-rangefinder/.venv/bin/python -m rangefinder live --headless --json --exposure 2000
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
